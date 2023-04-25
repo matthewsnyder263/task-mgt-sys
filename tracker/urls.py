@@ -24,6 +24,7 @@ def redirect_to_list_projects(request):
 
 
 urlpatterns = [
+    path("tasks/", include("tasks.urls")),
     path("accounts/", include("accounts.urls")),
     path("", redirect_to_list_projects, name="home"),
     path("projects/", include("projects.urls")),
