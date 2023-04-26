@@ -10,9 +10,7 @@ def create_task(request):
     if request.method == "POST":
         form = TaskForm(request.POST)
         if form.is_valid():
-            task = form.save()
-            task.assignee = request.user
-            task.save()
+            form.save()
             return redirect("list_projects")
     else:
         form = TaskForm()
