@@ -29,7 +29,7 @@ def create_project(request):
         form = ProjectForm(request.POST)
         if form.is_valid():
             project = form.save(False)
-            project.owner = form.cleaned_data['owner']
+            project.owner = request.user
             project.save()
             return redirect("list_projects")
     else:
